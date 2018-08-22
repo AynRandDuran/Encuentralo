@@ -12,7 +12,7 @@ SpotDeck comment: ''!
 
 drawRandom
 
-	^symbols at: (Time microsecondClockValue rem: (self size))!
+	^symbols at: (Time microsecondClockValue rem: (self symbols size)) + 1!
 
 name
 

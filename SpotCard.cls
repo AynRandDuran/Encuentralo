@@ -1,7 +1,7 @@
 "Filed out from Dolphin Smalltalk 7"!
 
 Object subclass: #SpotCard
-	instanceVariableNames: 'symbols size match'
+	instanceVariableNames: 'symbols size deck'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
@@ -10,14 +10,21 @@ SpotCard comment: ''!
 !SpotCard categoriesForClass!Unclassified! !
 !SpotCard methodsFor!
 
-match
+deck
 
-	^match!
+	^deck!
 
-match: aSpotSymbol
-	"The symbol meant to be the single match between two cards"
+deck: aSpotDeck
 
-	match:= aSpotSymbol!
+	deck:= aSpotDeck!
+
+size
+
+	^size!
+
+size: anInt
+
+	size:= anInt!
 
 symbols
 
@@ -26,18 +33,24 @@ symbols
 symbols: someSpotSymbols
 
 	symbols:= someSpotSymbols! !
-!SpotCard categoriesFor: #match!public! !
-!SpotCard categoriesFor: #match:!public! !
+!SpotCard categoriesFor: #deck!public! !
+!SpotCard categoriesFor: #deck:!public! !
+!SpotCard categoriesFor: #size!public! !
+!SpotCard categoriesFor: #size:!public! !
 !SpotCard categoriesFor: #symbols!public! !
 !SpotCard categoriesFor: #symbols:!public! !
 
 !SpotCard class methodsFor!
 
 drawFrom: aSpotDeck limit: anInteger
-	"Create a card with a number of symbols on it defined by limit"
+	"Create a card with a number of empty symbol slots on it defined by limit"
+
 	|card|
 	card:= super new.
-	card match: aSpotDeck drawRandom.
+	card size: anInteger.
+	card deck: aSpotDeck.
+	card symbols: OrderedCollection new.
+	^card
 	! !
 !SpotCard class categoriesFor: #drawFrom:limit:!public! !
 
