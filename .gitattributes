@@ -1,2 +1,1 @@
-* linguist-vendored
-*.cls linguist-vendored=false
+*.cls linguist-language=Smalltalk
