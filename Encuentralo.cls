@@ -1,7 +1,7 @@
 "Filed out from Dolphin Smalltalk 7"!
 
 Shell subclass: #Encuentralo
-	instanceVariableNames: 'deckListPresenter LeftCardPresenter RightCardPresenter shell startButton'
+	instanceVariableNames: 'deckListPresenter shell deckList startButton'
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
@@ -14,23 +14,29 @@ createComponents
 
 	super createComponents.
 	shell:= Shell create: Shell defaultView.
-	shell extent: 500@300.
+	shell
+		extent: 500@300;
+		caption: 'Encuentralo'.
 	deckListPresenter:= DirectoryCollectionPresenter createIn: shell on: OrderedCollection new.
 	shell add: deckListPresenter.
 	deckListPresenter position: 10@75.
 	deckListPresenter extent: 350@175.
 	self drawMainMenu.
 	shell show.
-	startButton
 	!
 
 createSchematicWiring
 
-	!
+	super createSchematicWiring.!
+
+deckListPresenter
+
+	Transcript show: 'FUCK'.
+	^deckListPresenter!
 
 drawMainMenu
 
-	|banner playButton|
+	|banner buttonPresenter|
 	banner:= StaticText new.
 	shell view addSubView: banner.
 	banner
@@ -38,33 +44,30 @@ drawMainMenu
 		extent: 500@50;
 		alignment: #center;
 		backcolor: Color white;
-		font: (Font name: 'Terminal' pointSize: 32). "Uh yeah why the fuck doesn't this work"
+		font: (Font name: 'Terminal' pointSize: 32).
 
-	playButton:= PushButton new.
-	shell view addSubView: playButton.
-	playButton
+	startButton:= PushButton new.
+	shell view addSubView: startButton.
+	startButton
 		text: 'Play';
 		position: 370 @ 75;
 		extent: 100 @ 25;
-		backcolor: (Color black);
-		command: #startGame.
-		self halt.
-	startButton:= playButton.!
+		command: #playEncuentralo. "um yes, Object Arts? uh yeah why the fuck is this a super send"
+!
 
-startGame
+shell
 
-	Transcript show: 'ah'; cr.! !
+	^shell! !
 !Encuentralo categoriesFor: #createComponents!public! !
 !Encuentralo categoriesFor: #createSchematicWiring!public! !
+!Encuentralo categoriesFor: #deckListPresenter!public! !
 !Encuentralo categoriesFor: #drawMainMenu!public! !
-!Encuentralo categoriesFor: #startGame!public! !
+!Encuentralo categoriesFor: #shell!public! !
 
 !Encuentralo class methodsFor!
 
-playButton
+new
 
-	|button|
-
-	^button! !
-!Encuentralo class categoriesFor: #playButton!public! !
+	^super new! !
+!Encuentralo class categoriesFor: #new!public! !
 
