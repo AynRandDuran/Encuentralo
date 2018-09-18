@@ -5,24 +5,19 @@ EncuentraloState subclass: #EncuentraloStateBoth
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-EncuentraloStateBoth guid: (GUID fromString: '{BF780C8C-3904-40EA-971F-E680820B92EA}')!
+EncuentraloStateBoth guid: (GUID fromString: '{bf780c8c-3904-40ea-971f-e680820b92ea}')!
 EncuentraloStateBoth comment: ''!
 !EncuentraloStateBoth categoriesForClass!Unclassified! !
 !EncuentraloStateBoth methodsFor!
 
 updateCanvas
 
-	|graphics|
-	graphics:= OrderedCollection new.
 	1 to: 8 do: [:n |
-		graphics add: (GdiplusGraphics fromCanvas: self player canvas).
-		graphics last
-			drawImage: ((self player pair right symbols at: n) image)
+		(GdiplusImage fromFile: ((self player pair right symbols at: n) path))
+			drawOn: self player canvas
 			at: (self player rightPositions at: n)
 			extent: self randomResize
-			from: 0@0
-			extent: 100@100].
-
+	].
 	self player pair: (SpotCardPair drawFrom: self player deck limit: 8).
 	self player state: self player clearState.! !
 !EncuentraloStateBoth categoriesFor: #updateCanvas!public! !
