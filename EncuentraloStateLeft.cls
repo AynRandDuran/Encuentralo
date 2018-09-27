@@ -18,14 +18,6 @@ updateCanvas
 			at: (self player leftPositions at: n)
 			extent: self randomResize
 	].
-	self player state: self player bothState.
-
-"graphics add: (GdiplusGraphics fromCanvas: self player canvas).
-		graphics last
-			drawImage: ((self player pair left symbols at: n) image)
-			at: (self player leftPositions at: n)
-			extent: self randomResize
-			from: 0@0
-			extent: 100@100]."! !
+	self player state: self player bothState.! !
 !EncuentraloStateLeft categoriesFor: #updateCanvas!public! !
 

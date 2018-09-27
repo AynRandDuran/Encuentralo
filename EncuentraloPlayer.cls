@@ -5,7 +5,7 @@ Playground subclass: #EncuentraloPlayer
 	classVariableNames: ''
 	poolDictionaries: 'GdiplusConstants Win32Constants'
 	classInstanceVariableNames: ''!
-EncuentraloPlayer guid: (GUID fromString: '{69BA04F5-0D7B-404A-BA27-45A49F1AE8FA}')!
+EncuentraloPlayer guid: (GUID fromString: '{69ba04f5-0d7b-404a-ba27-45a49f1ae8fa}')!
 EncuentraloPlayer comment: ''!
 !EncuentraloPlayer categoriesForClass!Unclassified! !
 !EncuentraloPlayer methodsFor!
@@ -54,22 +54,36 @@ leftState: anObject
 
 newLeftPositions
 
-	"eventually make sure these don't overlap or go out of bounds"
+	|grid point|
+	grid:= OrderedCollection new.
+	1 to: 6 do:[:r |
+		1 to: 5 do: [:c |
+			grid add: (c*(self parentView extent x / 12))-(self parentView extent x / 12)+20@(r*(self parentView extent y / 7) truncated -(self parentView extent y / 7) truncated)+50.
+		]
+	].
 	self leftPositions: OrderedCollection new.
 	1 to: 8 do: [:each |
+		point:= ((Time microsecondClockValue) rem: (grid size)) +1.
 		self leftPositions
-			add: ((Time microsecondClockValue raisedTo: 2) rem: ((self parentView extent x)/2)-200) + 50
-				@((Time microsecondClockValue raisedTo: 2) rem: (self parentView extent y - 200)) + 50
+			add: (grid at: point).
+		grid removeAtIndex: point.
 	].!
 
 newRightPositions
 
-	"eventually make sure these don't overlap or go out of bounds"
+	|grid point|
+	grid:= OrderedCollection new.
+	1 to: 6 do:[:r |
+		1 to: 5 do: [:c |
+			grid add: (c*(self parentView extent x / 12))-(self parentView extent x / 12)+(self parentView extent x /2)+20@(r*(self parentView extent y / 7) truncated -(self parentView extent y / 7) truncated)+50.
+		]
+	].
 	self rightPositions: OrderedCollection new.
 	1 to: 8 do: [:each |
+		point:= ((Time microsecondClockValue) rem: (grid size)) +1.
 		self rightPositions
-			add: (((Time microsecondClockValue raisedTo: 2) rem: ((self parentView extent x)/2)-200) + 50) + (self parentView extent x/2)
-				@((Time microsecondClockValue raisedTo: 2) rem: (self parentView extent y - 200)) + 50
+			add: (grid at: point).
+		grid removeAtIndex: point.
 	].!
 
 onPaintRequired: aPaintEvent
