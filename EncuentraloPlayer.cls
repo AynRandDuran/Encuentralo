@@ -5,7 +5,7 @@ Playground subclass: #EncuentraloPlayer
 	classVariableNames: ''
 	poolDictionaries: 'GdiplusConstants Win32Constants'
 	classInstanceVariableNames: ''!
-EncuentraloPlayer guid: (GUID fromString: '{69ba04f5-0d7b-404a-ba27-45a49f1ae8fa}')!
+EncuentraloPlayer guid: (GUID fromString: '{69BA04F5-0D7B-404A-BA27-45A49F1AE8FA}')!
 EncuentraloPlayer comment: ''!
 !EncuentraloPlayer categoriesForClass!Unclassified! !
 !EncuentraloPlayer methodsFor!
@@ -58,7 +58,7 @@ newLeftPositions
 	grid:= OrderedCollection new.
 	1 to: 6 do:[:r |
 		1 to: 5 do: [:c |
-			grid add: (c*(self parentView extent x / 12))-(self parentView extent x / 12)+20@(r*(self parentView extent y / 7) truncated -(self parentView extent y / 7) truncated)+50.
+			grid add: ((c*(self parentView extent x / 12) truncated)-((self parentView extent x / 12) truncated)+20)@((r*((self parentView extent y / 7) truncated)-((self parentView extent y / 7) truncated)) + 50).
 		]
 	].
 	self leftPositions: OrderedCollection new.
@@ -75,7 +75,7 @@ newRightPositions
 	grid:= OrderedCollection new.
 	1 to: 6 do:[:r |
 		1 to: 5 do: [:c |
-			grid add: (c*(self parentView extent x / 12))-(self parentView extent x / 12)+(self parentView extent x /2)+20@(r*(self parentView extent y / 7) truncated -(self parentView extent y / 7) truncated)+50.
+			grid add: (c*(self parentView extent x / 12) truncated)-((self parentView extent x / 12) truncated)+((self parentView extent x /2) truncated)+20@(r*(self parentView extent y / 7) truncated -(self parentView extent y / 7) truncated)+50.
 		]
 	].
 	self rightPositions: OrderedCollection new.
@@ -150,9 +150,12 @@ state: aState
 
 playedWith: anOrderedCollection
 
-	|player cycleButton|
+	|player cycleButton deck|
+	deck:= (SpotDeckGenerator for: anOrderedCollection).
+	deck size < 15
+		ifTrue: [^nil].
 	player:= super new.
-	player deck: (SpotDeckGenerator for: anOrderedCollection);
+	player deck: deck;
 	caption: 'Encuentralo';
 	extent: player parentView extent;
 	pair: (SpotCardPair drawFrom: player deck limit: 8).
