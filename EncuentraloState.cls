@@ -5,7 +5,7 @@ State subclass: #EncuentraloState
 	classVariableNames: ''
 	poolDictionaries: ''
 	classInstanceVariableNames: ''!
-EncuentraloState guid: (GUID fromString: '{CCBDC51E-B08F-4941-B85A-5B13365A745B}')!
+EncuentraloState guid: (GUID fromString: '{ccbdc51e-b08f-4941-b85a-5b13365a745b}')!
 EncuentraloState comment: ''!
 !EncuentraloState categoriesForClass!Unclassified! !
 !EncuentraloState methodsFor!
@@ -20,7 +20,7 @@ randomResize
 
 	|newDim|
 	newDim:= (Time microsecondClockValue rem: 50).
-	^50+newDim@50+newDim!
+	^55+newDim@50+newDim!
 
 updateCanvas
 
@@ -35,7 +35,7 @@ updateCanvas
 onPlayer: encuentraloPlayer
 
 	|state|
-	state:= super new.
+	state:= self new.
 	state player: encuentraloPlayer.
 	^state! !
 !EncuentraloState class categoriesFor: #onPlayer:!public! !

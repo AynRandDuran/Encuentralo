@@ -5,7 +5,7 @@ Playground subclass: #EncuentraloPlayer
 	classVariableNames: ''
 	poolDictionaries: 'GdiplusConstants Win32Constants'
 	classInstanceVariableNames: ''!
-EncuentraloPlayer guid: (GUID fromString: '{69BA04F5-0D7B-404A-BA27-45A49F1AE8FA}')!
+EncuentraloPlayer guid: (GUID fromString: '{69ba04f5-0d7b-404a-ba27-45a49f1ae8fa}')!
 EncuentraloPlayer comment: ''!
 !EncuentraloPlayer categoriesForClass!Unclassified! !
 !EncuentraloPlayer methodsFor!
@@ -54,29 +54,38 @@ leftState: anObject
 
 newLeftPositions
 
-	|grid point|
+	|grid point xSplit ySplit xMax yMax rows columns|
+	xMax:= self parentView extent x quo: 2.
+	yMax:= self parentView extent y -150.
+	columns:= xMax quo: 150.
+	rows:= yMax quo: 150.
+	xSplit:= xMax quo: columns.
+	ySplit:= yMax quo: rows.
 	grid:= OrderedCollection new.
-	1 to: 6 do:[:r |
-		1 to: 5 do: [:c |
-			grid add: ((c*(self parentView extent x / 12) truncated)-((self parentView extent x / 12) truncated)+20)@((r*((self parentView extent y / 7) truncated)-((self parentView extent y / 7) truncated)) + 50).
-		]
+	1 to: rows do:[:r |
+		1 to: columns do: [:c | grid add: (c*(xSplit)-(xSplit))@(r*(ySplit)-(ySplit) + 100)]
 	].
+
 	self leftPositions: OrderedCollection new.
 	1 to: 8 do: [:each |
 		point:= ((Time microsecondClockValue) rem: (grid size)) +1.
-		self leftPositions
-			add: (grid at: point).
+		self leftPositions add: (grid at: point).
 		grid removeAtIndex: point.
-	].!
+	].
+	!
 
 newRightPositions
 
-	|grid point|
+	|grid point xSplit ySplit xMax yMax rows columns|
+	xMax:= self parentView extent x.
+	yMax:= self parentView extent y -150.
+	columns:= xMax quo: 300.
+	rows:= yMax quo: 150.
+	xSplit:= xMax quo: columns.
+	ySplit:= yMax quo: rows.
 	grid:= OrderedCollection new.
-	1 to: 6 do:[:r |
-		1 to: 5 do: [:c |
-			grid add: (c*(self parentView extent x / 12) truncated)-((self parentView extent x / 12) truncated)+((self parentView extent x /2) truncated)+20@(r*(self parentView extent y / 7) truncated -(self parentView extent y / 7) truncated)+50.
-		]
+	1 to: rows do:[:r |
+		1 to: columns do: [:c | grid add: (c*(xSplit) - (xSplit) + xMax quo: 2)@(r*(ySplit)-(ySplit) + 100)]
 	].
 	self rightPositions: OrderedCollection new.
 	1 to: 8 do: [:each |
