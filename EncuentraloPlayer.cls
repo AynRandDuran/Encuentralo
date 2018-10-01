@@ -85,7 +85,7 @@ newRightPositions
 	ySplit:= yMax quo: rows.
 	grid:= OrderedCollection new.
 	1 to: rows do:[:r |
-		1 to: columns do: [:c | grid add: (c*(xSplit) - (xSplit) + xMax quo: 2)@(r*(ySplit)-(ySplit) + 100)]
+		1 to: columns do: [:c | grid add: (c*(xSplit) - (xSplit) + xMax quo: 2)+5@(r*(ySplit)-(ySplit) + 100)]
 	].
 	self rightPositions: OrderedCollection new.
 	1 to: 8 do: [:each |
