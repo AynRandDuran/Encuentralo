@@ -3,7 +3,7 @@ An attempt at a computerized version of the card game Spot It for use in class r
 Please don't sue me. 
 
 ## Use
-A Windows Executable is available [over in releases](https://github.com/AynRandDuran/Encuentralo/releases), but I guess you really want just throw every class in a package and deploy it yourself, or just start it in a workspace with `Encuentralo new`.
+A Windows executable is available [over in releases](https://github.com/AynRandDuran/Encuentralo/releases), but I guess if you really want just throw every class in a package and deploy it yourself, or just start it in a workspace with `Encuentralo new`.
 
 Just give it a good ol' double-click and you're good to go. Use the folder selector to add folders of images with which to play. BMP, PNG, and JPG images are supported.
 
