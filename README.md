@@ -14,6 +14,7 @@ After that, just click play to start. Click the cycle button to "draw" cards unt
 ## Development
 PRs are welcome; active development has fallen to the wayside but I'd like to keep working on this.
 
+Current version of Dolphin is v7.1.3-61
 ### Load order
 To develop yourself, here's the load order to file in:
 
