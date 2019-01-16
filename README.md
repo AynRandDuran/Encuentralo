@@ -1,16 +1,18 @@
 # Encuentralo
-An attempt at a computerized version of the card game Spot It for use in class rooms with custom symbols.
-Please don't sue me. 
+An adaptation of the card game Spot It for use in classrooms with custom symbols, providing a fun and competetive method of practicing vocabulary.
 
 ## Use
-A Windows executable is available [over in releases](https://github.com/AynRandDuran/Encuentralo/releases), but I guess if you really want just throw every class in a package and deploy it yourself, or just start it in a workspace with `Encuentralo new`.
+A Windows executable is available [over in releases](https://github.com/AynRandDuran/Encuentralo/releases).
 
-Just give it a good ol' double-click and you're good to go. Use the folder selector to add folders of images with which to play. BMP, PNG, and JPG images are supported.
+Simply start the game with the provided executable and use the deck picker to browser for folders containing the images you'd like to play with. Once you've selected all the decks and are ready, click play. After this, you can begin playing in the new window that appears. Click 'Cycle' to repeatedly flip new pairs of cards, from left to right, and try to be the first to identify which symbol both cards have in common. The game will cycle between no cards, left, and both being revealed with each button press. Each card pair will only **ever** have a single symbol in common.
 
-Any resolution can be used but I would recommend no less than 100x100 for the sake of it not looking terrible. Images are forced to be square to make arranging them easier, so avoid particularly rectangular images or they'll look weird. Use at least 15 total images for proper play, though there is no upper limit.
+When creating decks, here are some tips:
+* A minimum image resolution of 100x100 is recommended. There is no particular limit on resolution but below this, quality drops notably.
+* Relatively square aspect ratios. All images are forced to 1:1 when play begins, they may look bad otherwise.
+* Supported image types are BMP, JPG, and PNG.
+* Provide at least 15 total images when playing. The game will not begin if your selected decks have less, though there is no upper limit.
 
-After that, just click play to start. Click the cycle button to "draw" cards until you're done playing.
-
+There is no limit on how long you can play. Given enough images are provided, there can be *many* unique cards.
 ## Development
 PRs are welcome; active development has fallen to the wayside but I'd like to keep working on this.
 
@@ -34,3 +36,5 @@ To develop yourself, here's the load order to file in:
 14. Shell.cls
 15. Encuentralo.cls
 16. EncuentraloSessionManager.cls
+
+The game can be started with the message `Encuentralo new`
