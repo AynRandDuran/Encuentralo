@@ -16,7 +16,7 @@ There is no limit on how long you can play. Given enough images are provided, th
 ## Development
 PRs are welcome; active development has fallen to the wayside but I'd like to keep working on this.
 
-Current version of Dolphin is v7.1.3-61
+Developed with Dolphin v7.0.57.2
 ### Load order
 To develop yourself, here's the load order to file in:
 
