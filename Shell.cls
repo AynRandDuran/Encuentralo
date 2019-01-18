@@ -180,10 +180,6 @@ performCommand: aCommand
 
 	^self view performCommand: aCommand!
 
-playEncuentralo
-
-	EncuentraloPlayer playedWith: self subPresenters first model value!
-
 queryCommand: aCommandQuery 
 	"Enters details about a potential command for the receiver into the <CommandQuery>
 	arugment."
@@ -328,7 +324,6 @@ view: aShellView
 !Shell categoriesFor: #onViewOpened!event handling!public! !
 !Shell categoriesFor: #onViewRestored:!event handling!public! !
 !Shell categoriesFor: #performCommand:!commands!public! !
-!Shell categoriesFor: #playEncuentralo!commands!public! !
 !Shell categoriesFor: #queryCommand:!commands!private! !
 !Shell categoriesFor: #redo!commands!public! !
 !Shell categoriesFor: #setInitialFocus!operations!public! !
