@@ -1,7 +1,7 @@
 # Encuentralo
-An adaptation of the card game Spot It for use in classrooms with custom symbols, providing a fun and competetive method of practicing vocabulary.
+An adaptation of the Asmodee card game Spot It that allows for custom image sets and finds good use in educational settings like classrooms.
 
-## Use
+## User Guide
 A Windows executable is available [over in releases](https://github.com/AynRandDuran/Encuentralo/releases). For full functionality, ensure that the file DolphinDR7.dll is in the same directory as your Encuentralo executable.
 
 Simply start the game with the provided executable and use the deck picker to browser for folders containing the images you'd like to play with. Once you've selected your decks and are ready, click play. After this, you can begin playing in the new window that appears. Click 'Cycle' to repeatedly flip new pairs of cards, from left to right, and try to be the first to identify which symbol both cards have in common. The game will cycle between no cards, left, and both being revealed with each button press. Each card pair will only **ever** have a single symbol in common.
